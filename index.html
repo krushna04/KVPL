@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="images/kvpl.png" type="image/icon">
+    <title>Kalyaneshwar Volleyball Premiar League</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#teams">Teams</a></li>
+                <!-- <li><a href="#playerlist">Player List</a></li> -->
+                <li><a href="auction.html" target=”_blank”>Auction</a></li>
+                <li><a href="matchshadule.html" target=”_blank”>Matches</a></li>
+                <li><a href="pointstable.html" target=”_blank”>Points Table</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Welcome to the Kalyaneshwar Volleyball Premiar League</h1>
+            <p>Get the latest updates on matches, teams, and players</p>
+        </div>
+    </section>
+    
+    <!-- Teams Section -->
+    <h2>Teams</h2>
+    <section id="teams" class="teams-section">
+        <div class="team-list">
+            <div onclick="showPlayers('KalpataruSiegeEngine')" class="team-item">
+                <!-- <img src="images/logo1.jpg" alt="Kalpataru Siege Engine Logo">  -->
+                Kalpataru Siege Engine
+            </div>
+            <div onclick="showPlayers('UnityWarriors')" class="team-item">
+                <!-- <img src="images/logo1.jpg" alt="Unity Warriors Logo">  -->
+                Unity Warriors
+            </div>
+            <div onclick="showPlayers('WehrmachtArmy')" class="team-item">
+                <!-- <img src="images/logo1.jpg" alt="Wehrmacht Army Logo">  -->
+                Wehrmacht Army
+            </div>
+            <div onclick="showPlayers('TeamX')" class="team-item">
+                <!-- <img src="images/logo1.jpg" alt="Team X Logo">  -->
+                Team X
+            </div>
+            <div onclick="showPlayers('VmsEagles')" class="team-item">
+                <!-- <img src="images/logo1.jpg" alt="VMS Eagles Logo">  -->
+                VMS Eagles
+            </div>
+            <div onclick="showPlayers('ZeroMileFighters')" class="team-item">
+                <!-- <img src="images/logo1.jpg" alt="Zero Mile Fighters Logo">  -->
+                Zero Mile Fighters
+            </div>
+        </div>
+
+        <!-- Player List Section -->
+        <div id="player-list" class="player-list">
+                    <!-- Player information will be injected here based on team selection -->
+        </div>
+    </section>
+
+    
+    
+    <footer>
+        <p>© 2024 Volleyball Tournament<br> Designed and developed by Krushnakant Moundekar</p>
+    </footer>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
