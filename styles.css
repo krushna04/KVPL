@@ -1,103 +1,299 @@
-// Define player data for each team
-const teamsData = {
-    KalpataruSiegeEngine: [
-        { name: 'Abhishek Salve', img: 'images/profile.png' },
-        { name: 'Shiva Rao', img: 'images/profile.png' },
-        { name: 'Nikhil Salve', img: 'images/profile.png' },
-        { name: 'Bhushan', img: 'images/profile.png' },
-        { name: 'Funde Sir', img: 'images/profile.png' },
-        { name: 'Pravin Ingle', img: 'images/profile.png' },
-        { name: 'Swayam Byahar', img: 'images/profile.png' }
-    ],
-    UnityWarriors: [
-        { name: 'Pawan Deshmukh', img: 'images/profile.png' },
-        { name: 'Raju Balpande', img: 'images/profile.png' },
-        { name: 'Roshan Poduval', img: 'images/profile.png' },
-        { name: 'Ajay Mohite', img: 'images/profile.png' },
-        { name: 'Prashant Khangar', img: 'images/profile.png' },
-        { name: 'Vicky Bhoyar', img: 'images/profile.png' },
-        { name: 'Niraj Jain', img: 'images/profile.png' }
-    ],
-    WehrmachtArmy: [
-        { name: 'Tejomay Bhagwat', img: 'images/profile.png' },
-        { name: 'Vipul Namewar', img: 'images/profile.png' },
-        { name: 'Mangesh Gawande', img: 'images/profile.png' },
-        { name: 'Narendra Korde', img: 'images/profile.png' },
-        { name: 'Shubham Korke', img: 'images/profile.png' },
-        { name: 'Mahesh Bante', img: 'images/profile.png' },
-        { name: 'Rajan Bhajipale', img: 'images/profile.png' }
-    ],
-    TeamX: [
-        { name: 'Pankaj Kurhade', img: 'images/profile.png' },
-        { name: 'Subodh Atkare', img: 'images/profile.png' },
-        { name: 'Amol Sasankar', img: 'images/profile.png' },
-        { name: 'Jitendra Manekar', img: 'images/profile.png' },
-        { name: 'Akshay Ambadkar', img: 'images/profile.png' },
-        { name: 'Shekhar Thekale', img: 'images/profile.png' },
-        { name: 'Karan Dhapodkar', img: 'images/profile.png' }
-    ],
-    VmsEagles: [
-        { name: 'Devendra Thakre', img: 'images/profile.png' },
-        { name: 'Shubham Kawre', img: 'images/profile.png' },
-        { name: 'Shivendra Bhaiyya', img: 'images/profile.png' },
-        { name: 'Ayush Shirpurkar', img: 'images/profile.png' },
-        { name: 'Vikram Korke', img: 'images/profile.png' },
-        { name: 'Vedang Korde', img: 'images/profile.png' },
-        { name: 'Shrikant Kaka', img: 'images/profile.png' }
-    ],
-    ZeroMileFighters: [
-        { name: 'Waman Kondekar', img: 'images/profile.png' },
-        { name: 'Om Kondekar', img: 'images/profile.png' },
-        { name: 'Krushnakant Moundekar', img: 'images/krushnakant.png' },
-        { name: 'Kishor Shaniware', img: 'images/profile.png' },
-        { name: 'Ishan Mahendra', img: 'images/profile.png' },
-        { name: 'Sandeep Kadam', img: 'images/profile.png' },
-        { name: 'Sachin Mane', img: 'images/profile.png' }
-    ]
-};
-
-// Function to display players based on team selection
-function showPlayers(teamId) {
-    
-    const playerListDiv = document.getElementById('player-list');
-    playerListDiv.innerHTML = '';  
-
-    // Create HTML for players of the selected team
-    const players = teamsData[teamId];
-    if (players) {
-        let playerGrid = '<div class="player-grid">';
-        players.forEach(player => {
-            playerGrid += `
-                <div class="player-card">
-                    <img src="${player.img}" alt="${player.name}">
-                    <h4>${player.name}</h4>
-                </div>
-            `;
-        });
-        playerGrid += '</div>';
-
-        playerListDiv.innerHTML = playerGrid;
-        playerListDiv.style.display = 'block';  
-    } else {
-        playerListDiv.style.display = 'none';  
-    }
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4; 
 }
 
-function showTab(year) {
-    // Hide all tab content
-    const contents = document.querySelectorAll('.tab-content');
-    contents.forEach(content => {
-        content.style.display = 'none';
-    });
-
-    // Show the selected tab content
-    const selectedContent = document.getElementById(year);
-    if (selectedContent) {
-        selectedContent.style.display = 'block';
-    }
+header {
+    background-color: #2c3e50; 
+    color: white;
+    padding: 15px 0; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); 
 }
 
-// Show 2024 tab content by default
-window.onload = function() {
-    showTab('2024');
-};
+.promo{
+    color: black;
+}
+
+.news{
+    color: black;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex; 
+    justify-content: center; 
+}
+
+nav ul li {
+    margin: 0 15px; 
+}
+
+nav ul li a {
+    color: #ecf0f1; 
+    text-decoration: none;
+    font-weight: bold; 
+    transition: color 0.3s; 
+}
+
+nav ul li a:hover {
+    color: #3498db; 
+}
+
+.hero {
+    background-color: #27ae60; 
+    color: white;
+    text-align: center;
+    padding: 60px 20px; 
+}
+
+h2 {
+    text-align: center;
+    margin-top: 20px;
+    color: #2980b9; 
+}
+
+/* Team Item Styling */
+.teams-section {
+    display: flex;
+    justify-content: space-between;
+    padding: 30px;
+    flex-wrap: wrap; 
+}
+
+.team-list {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px; 
+}
+
+.team-item {
+    background-color: #ecf0f1; 
+    border: 2px solid #bdc3c7; 
+    border-radius: 12px; 
+    padding: 20px;
+    text-align: center; 
+    cursor: pointer; 
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+    width: 100%; 
+    max-width: 200px; 
+    margin: 0 auto; 
+}
+
+.team-item img {
+    width: 100px; 
+    height: 100px; 
+    border-radius: 50%; 
+    margin-bottom: 10px; 
+    object-fit: cover; 
+}
+
+.team-item:hover {
+    background-color: #d5dbdb; 
+    transform: translateY(-5px); 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
+}
+
+.team-item p {
+    margin: 0;
+    font-size: 16px; 
+    color: #34495e; 
+    font-weight: bold;
+}
+
+/* Player list styles */
+.player-list {
+    width: 65%;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    display: none; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.player-grid {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.player-card {
+    text-align: center;
+    width: 150px;
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.player-card img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+    object-fit: cover;
+}
+
+.player-card h4 {
+    font-size: 16px;
+    color: #333;
+    margin: 10px 0 0;
+}
+
+.player-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+
+.auction-section, .matcheshadule-section, .pointstable {
+    padding: 25px;
+    margin: 20px 0;
+    background-color: #ffffff;
+    border-radius: 10px; 
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15); 
+}
+
+.tableStyle {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tableStyle th, .tableStyle td {
+    border: 1px solid #bdc3c7;
+    padding: 12px; 
+    text-align: left;
+}
+
+.tableStyle th {
+    background-color: #3498db; 
+    color: white; 
+}
+
+.tableStyle tr:nth-child(even) {
+    background-color: #f2f2f2; 
+}
+
+footer {
+    text-align: center;
+    padding: 15px 0; 
+    background-color: #2c3e50;
+    color: white;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+/* Auction Section Styling */
+#auction {
+    padding: 20px;
+    background-color: #f9f9f9; 
+    border-radius: 10px; 
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); 
+}
+
+#auction h3 {
+    color: #2980b9; 
+    margin-bottom: 20px;
+}
+
+#styleTable {
+    width: 100%;
+    border-collapse: collapse; 
+    margin-top: 10px;
+}
+
+#styleTable th, #styleTable td {
+    border: 1px solid #bdc3c7; 
+    padding: 12px 15px; 
+    text-align: left;
+}
+
+#styleTable th {
+    background-color: #3498db; 
+    color: white; 
+    font-weight: bold;
+    text-transform: uppercase; 
+    font-size: 14px;
+}
+
+#styleTable tr:nth-child(even) {
+    background-color: #f2f2f2; 
+}
+
+#styleTable tr:hover {
+    background-color: #eaeaea; 
+}
+
+#styleTable td {
+    font-size: 14px; 
+}
+
+#styleTable td:last-child {
+    text-align: left; 
+}
+
+#matcheshadule{
+    padding: 20px;
+    background-color: #f9f9f9; 
+    border-radius: 10px; 
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); 
+}
+
+#pointstable{
+    padding: 20px;
+    background-color: #f9f9f9; 
+    border-radius: 10px; 
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.team-grid {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.team-card {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    width: 150px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#playerlist {
+    padding: 20px;
+    background-color: #f9f9f9; 
+    border-radius: 10px; 
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); 
+}
+
+#extraplayerlist {
+    padding: 20px;
+    background-color: #f9f9f9; 
+    border-radius: 10px; 
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); 
+}
+
+#match {
+    padding: 20px;
+    background-color: #f9f9f9; 
+    border-radius: 10px; 
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); 
+}
+
+.mom-card{
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    width: 250px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
