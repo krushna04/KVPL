@@ -101,3 +101,15 @@ function showTab(year) {
 window.onload = function() {
     showTab('2024');
 };
+
+function zmfvskse() {
+    window.location.href = 'zmfvskse.html';
+}
+
+function wavsuw() {
+    window.location.href = 'wavsuw.html';
+}
+
+function txvsvms() {
+    window.location.href = 'txvsvms.html';
+}
