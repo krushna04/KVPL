@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Volleyball Scoring</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+    <!-- <style>
+        /* Basic styling for the court and players */
+        .court {
+            display: flex;
+            justify-content: space-around;
+            margin: 20px 0;
+        }
+
+        .team-area {
+            text-align: center;
+        }
+
+        .player {
+            margin: 10px;
+            padding: 10px;
+            border: 1px solid #000;
+            cursor: pointer;
+            background-color: #f1f1f1;
+        }
+
+        .score {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        
+        .end-match {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            font-size: 18px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        .end-match:hover {
+            background-color: #0056b3;
+        }
+    </style> -->
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <img src="images/logo.png" alt="Logo">
+            </div>
+            <div class="nav-buttons">
+                <button onclick="navigateToMatchDetails()">Start a Tournament</button>
+                <button onclick="addTournament()">Add Tournament</button>
+            </div>
+        </nav>
+    </header>
+    
+    <h1>Volleyball Live Scoring</h1>
+
+    <div class="court">
+        <div class="team-area" id="teamA">
+            <h2>Team A</h2>
+            <div class="player" id="lifterA" onclick="scorePoint('A', 'Lifter')">Lifter</div>
+            <div class="player" id="aceA" onclick="scorePoint('A', 'Ace')">Ace</div>
+            <div class="player" id="smasherA" onclick="scorePoint('A', 'Smasher')">Smasher</div>
+            <div class="player" id="centreA" onclick="scorePoint('A', 'Centre')">Centre</div>
+            <div class="player" id="defence1A" onclick="scorePoint('A', 'Defence 1')">Defence 1</div>
+            <div class="player" id="defence2A" onclick="scorePoint('A', 'Defence 2')">Defence 2</div>
+            <div class="score" id="scoreA">0</div>
+        </div>
+        <div class="team-area" id="teamB">
+            <h2>Team B</h2>
+            <div class="player" id="lifterB" onclick="scorePoint('B', 'Lifter')">Lifter</div>
+            <div class="player" id="aceB" onclick="scorePoint('B', 'Ace')">Ace</div>
+            <div class="player" id="smasherB" onclick="scorePoint('B', 'Smasher')">Smasher</div>
+            <div class="player" id="centreB" onclick="scorePoint('B', 'Centre')">Centre</div>
+            <div class="player" id="defence1B" onclick="scorePoint('B', 'Defence 1')">Defence 1</div>
+            <div class="player" id="defence2B" onclick="scorePoint('B', 'Defence 2')">Defence 2</div>
+            <div class="score" id="scoreB">0</div>
+        </div>
+    </div>
+
+    <button class="end-match" onclick="endMatch()">End Match</button>
+
+    <!-- <script>
+        let matchDetails;
+        let currentSet = 1;
+        let scoreA = 0;
+        let scoreB = 0;
+        let setResults = [];
+        let pointDetails = [];
+
+        document.addEventListener('DOMContentLoaded', () => {
+            matchDetails = JSON.parse(localStorage.getItem('matchDetails'));
+            const team1Players = JSON.parse(localStorage.getItem('team1Players'));
+            const team2Players = JSON.parse(localStorage.getItem('team2Players'));
+
+            if (matchDetails && team1Players && team2Players) {
+                // Assign player names to the positions
+                document.getElementById('lifterA').textContent = team1Players[0] || 'Lifter';
+                document.getElementById('aceA').textContent = team1Players[1] || 'Ace';
+                document.getElementById('smasherA').textContent = team1Players[2] || 'Smasher';
+                document.getElementById('centreA').textContent = team1Players[3] || 'Centre';
+                document.getElementById('defence1A').textContent = team1Players[4] || 'Defence 1';
+                document.getElementById('defence2A').textContent = team1Players[5] || 'Defence 2';
+
+                document.getElementById('lifterB').textContent = team2Players[0] || 'Lifter';
+                document.getElementById('aceB').textContent = team2Players[1] || 'Ace';
+                document.getElementById('smasherB').textContent = team2Players[2] || 'Smasher';
+                document.getElementById('centreB').textContent = team2Players[3] || 'Centre';
+                document.getElementById('defence1B').textContent = team2Players[4] || 'Defence 1';
+                document.getElementById('defence2B').textContent = team2Players[5] || 'Defence 2';
+            }
+        });
+
+        function scorePoint(team, player) {
+            const scoreElement = document.getElementById(`score${team}`);
+            let currentScore = parseInt(scoreElement.textContent);
+
+            if (team === 'A') {
+                scoreA++;
+            } else {
+                scoreB++;
+            }
+
+            // Log the point details
+            pointDetails.push({
+                set: currentSet,
+                team: team === 'A' ? matchDetails.team1 : matchDetails.team2,
+                player: player,
+                point: team === 'A' ? scoreA : scoreB
+            });
+
+            // Update the score display
+            scoreElement.textContent = currentScore + 1;
+
+            // Check if the set is won
+            if (scoreA >= matchDetails.pointsPerSet && (scoreA - scoreB) >= matchDetails.difference) {
+                setResults.push({ set: currentSet, winner: matchDetails.team1, score: `${scoreA}-${scoreB}` });
+                startNextSet();
+            } else if (scoreB >= matchDetails.pointsPerSet && (scoreB - scoreA) >= matchDetails.difference) {
+                setResults.push({ set: currentSet, winner: matchDetails.team2, score: `${scoreB}-${scoreA}` });
+                startNextSet();
+            }
+        }
+
+        function startNextSet() {
+            if (currentSet < matchDetails.sets) {
+                currentSet++;
+                scoreA = 0;
+                scoreB = 0;
+                document.getElementById('scoreA').textContent = '0';
+                document.getElementById('scoreB').textContent = '0';
+                alert(`Starting Set ${currentSet}`);
+            } else {
+                endMatch();
+            }
+        }
+
+        function endMatch() {
+            localStorage.setItem('setResults', JSON.stringify(setResults));
+            localStorage.setItem('pointDetails', JSON.stringify(pointDetails));
+            window.location.href = 'match_summary.html';
+        }
+    </script> -->
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Player Names</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <img src="images/logo.png" alt="Logo">
+            </div>
+            <div class="nav-buttons">
+                <button onclick="navigateToMatchDetails()">Start a Tournament</button>
+                <button onclick="addTournament()">Add Tournament</button>
+            </div>
+        </nav>
+    </header>
+
+    <div class="main-content">
+        <div class="grid-container">
+            <h1>Enter Players' Names</h1>
+            <div class="grid-item item1">
+                <h2>Team 1</h2>
+                <form id="team1-form">
+                    <label for="team1-player1">Player 1:</label>
+                    <input type="text" id="team1-player1" name="team1-player1" required><br><br>
+                    <label for="team1-player2">Player 2:</label>
+                    <input type="text" id="team1-player2" name="team1-player2" required><br><br>
+                    <label for="team1-player3">Player 3:</label>
+                    <input type="text" id="team1-player3" name="team1-player3" required><br><br>
+                    <label for="team1-player4">Player 4:</label>
+                    <input type="text" id="team1-player4" name="team1-player4" required><br><br>
+                    <label for="team1-player5">Player 5:</label>
+                    <input type="text" id="team1-player5" name="team1-player5" required><br><br>
+                    <label for="team1-player6">Player 6:</label>
+                    <input type="text" id="team1-player6" name="team1-player6" required><br><br>
+                    <label for="team1-player7">Player 7:</label>
+                    <input type="text" id="team1-player7" name="team1-player7" required><br><br>
+                </form>
+            </div>
+            
+            <div class="grid-item item2">
+                <h2>Team 2</h2>
+                <form id="team2-form">
+                    <label for="team2-player1">Player 1:</label>
+                    <input type="text" id="team2-player1" name="team2-player1" required><br><br>
+                    <label for="team2-player2">Player 2:</label>
+                    <input type="text" id="team2-player2" name="team2-player2" required><br><br>
+                    <label for="team2-player3">Player 3:</label>
+                    <input type="text" id="team2-player3" name="team2-player3" required><br><br>
+                    <label for="team2-player4">Player 4:</label>
+                    <input type="text" id="team2-player4" name="team2-player4" required><br><br>
+                    <label for="team2-player5">Player 5:</label>
+                    <input type="text" id="team2-player5" name="team2-player5" required><br><br>
+                    <label for="team2-player6">Player 6:</label>
+                    <input type="text" id="team2-player6" name="team2-player6" required><br><br>
+                    <label for="team2-player7">Player 7:</label>
+                    <input type="text" id="team2-player7" name="team2-player7" required><br><br>
+                </form>
+            </div>
+        </div>
+        <button onclick="savePlayers()">Save Players</button>
+    </div>
+    <!-- <script>
+        function savePlayers() {
+            const team1Players = [];
+            const team2Players = [];
+
+            // Collect Team 1 player names
+            for (let i = 1; i <= 7; i++) {
+                const player = document.getElementById(`team1-player${i}`).value.trim();
+                if (player) {
+                    team1Players.push(player);
+                }
+            }
+
+            // Collect Team 2 player names
+            for (let i = 1; i <= 7; i++) {
+                const player = document.getElementById(`team2-player${i}`).value.trim();
+                if (player) {
+                    team2Players.push(player);
+                }
+            }
+
+             // Save to localStorage
+            localStorage.setItem('team1Players', JSON.stringify(team1Players));
+            localStorage.setItem('team2Players', JSON.stringify(team2Players));
+
+            // Navigate to the live scoring page
+            window.location.href = 'live_scoring.html';
+        }
+    </script> -->
+</body>
+</html>

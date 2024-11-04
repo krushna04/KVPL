@@ -1,0 +1,234 @@
+/* Common styling for all pages */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url('images/bg_image.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: #333;
+}
+
+header {
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo img {
+    height: 50px;
+}
+
+.nav-buttons button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    margin-left: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.nav-buttons button:hover {
+    background-color: #0056b3;
+}
+
+.main-content {
+    padding: 20px;
+    text-align: center;
+}
+
+h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+p {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #fff;
+}
+
+form {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+input[type="submit"],
+button {
+    background-color: #28a745;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover,
+button:hover {
+    background-color: #218838;
+}
+
+/* Grid layout for the player names page */
+.grid-container {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px 0;
+}
+
+.grid-item {
+    width: 45%;
+}
+
+.grid-item h2 {
+    color: #007bff;
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+/* Live scoring page styling */
+.court {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px 0;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 10px;
+}
+
+.team-area {
+    text-align: center;
+    width: 45%;
+    color: #fff;
+}
+
+.player {
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid #fff;
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.8);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    border-radius: 5px;
+}
+
+.player:hover {
+    background-color: #007bff;
+    transform: scale(1.1);
+}
+
+.score {
+    font-size: 48px;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.end-match {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    font-size: 18px;
+    background-color: #dc3545;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.end-match:hover {
+    background-color: #c82333;
+}
+
+/* Animation for scoring */
+@keyframes score-animation {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+        background-color: #28a745;
+        color: #fff;
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.player.scored {
+    animation: score-animation 0.5s ease;
+}
+
+/* Match summary table styling */
+table {
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+th, td {
+    padding: 12px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+th {
+    background-color: #007bff;
+    color: #fff;
+}
+
+td {
+    background-color: #f9f9f9;
+}
+
+/* Media Queries for responsive design */
+@media (max-width: 768px) {
+    .grid-container {
+        flex-direction: column;
+    }
+
+    .grid-item {
+        width: 90%;
+        margin-bottom: 20px;
+    }
+
+    .court {
+        flex-direction: column;
+    }
+
+    .team-area {
+        width: 100%;
+    }
+}
+
